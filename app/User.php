@@ -39,7 +39,8 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        //ovdje ih slaže od zadnjeg prema prvom ovi orderBy
+        return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
     }
 
     public function profile()

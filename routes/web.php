@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//za linkat na sliku sa indexa
+Route::get('/p/{post}', 'PostsController@show');
+
 Route::get('/p/create', 'PostsController@create');
 
 Route::post('/p/', 'PostsController@store');
