@@ -10,8 +10,9 @@ class ProfilesController extends Controller
     public function index($user)
     {
        // dd($user); za provjeru onog što se u funkc prosljeđuje//
-        $user = User::find($user);
-        return view('home', [
+        //findOrfail daje 404 error ako netko u linku ukuca id nepostojećeg usera
+        $user = User::findOrFail($user);
+        return view('profiles.index', [
             'user' => $user,
         ]);
     }
